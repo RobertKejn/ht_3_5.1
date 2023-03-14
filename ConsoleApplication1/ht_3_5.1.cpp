@@ -7,18 +7,17 @@ T quad(T input) {
     return input * input;
 }
 
-template<>
-std::vector<int> quad(std::vector<int> input) {
-    std::vector<int> v;
-    for (std::vector<int>::iterator i = input.begin(); i != input.end(); ++i) {
-        v.push_back(*i * *i);
+template<class T>
+std::vector<T> quad(std::vector<T> input) {
+    for (auto i = input.begin(); i != input.end(); i++) {
+        *i = *i * *i;
     }
-    return v;
+    return input;
 }
 
 int main()
 {
-    std::vector<int> v = { 1,2,3,4,5,6,7,8 };
+    std::vector<double> v = { 1,2,3,4,5,6,7,8 };
     int a = 10;
 
     v = quad(v);
